@@ -1,0 +1,186 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --body-light: #f1f1f1;
+  --font-dark: #303030;
+  --font-mid: #616161;
+  --font-light: #e3e3e3;
+  --bg-dark: #1a1a1a;
+  --bg-mid: #f3f3f3;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  background-color: var(--body-light);
+  font-size: 13px;
+  font-weight: 500;
+}
+.button {
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: var(--White, #fff);
+  box-shadow: 0px -1px 0px 0px #b5b5b5 inset;
+}
+
+nav {
+  background-color: var(--bg-dark);
+  color: #fff;
+  height: 60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+}
+.inner-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+.search {
+  /* border: 1px solid #FFF; */
+  width: 400px;
+  height: 68%;
+}
+.search-inner {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+  }
+  .search-input {
+    width: 100%;
+    margin-left: 10px;
+    background: none;
+    outline: none;
+    border: none;
+    color: var(--font-light);
+
+  }
+.notify {
+  /* border: 1px solid #FFF; */
+  width: 230px;
+  height: 68%;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+/* ==========centered */
+.notification, .profile-name, .profile-span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.notification {
+  height: 100%;
+  width: 50px;
+ 
+}
+.profile {
+  height: 100%;
+  width: 170px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.profile-name {
+    padding: 0.8rem;
+    color: var(--font-light);
+}
+.profile-span {
+    width: 40px;
+    background-color: #36FBA1;
+    height: 100%;
+    border-radius: 8px;
+    color: var(--font-dark);
+    font-size: 15px;
+    letter-spacing: 1px;
+
+
+}
+.badge-box {
+  background-color: var(--font-dark);
+  border-radius: 8px;
+}
+.main {
+  height: 400px;
+  width: 800px;
+  /* border: 1px solid black; */
+  margin: 0 auto;
+  margin-top: 6.5rem;
+  margin-bottom: 4rem;
+}
+/* =======================TRIAL STYLES */
+.trial-box {
+  height: 55px;
+  background-color: var(--bg-dark);
+  color: var(--font-light);
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
+}
+.trial-inner-box {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* ==================== ACCORDION STYLES */
+.accordion-box {
+  min-height: 300px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  color: var(--font-dark);
+  border-radius: 10px;
+  margin-top: 1rem;
+  font-weight: 400;
+  padding: 1rem;
+}
+.texts-box {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.progress-box {
+  display: flex;
+  align-items: center;
+}
+.progress-range {
+  margin-left: 1rem;
+}
+
+/* -------------- */
+.checks-box {
+  margin-top: 1rem;
+}
+.check {
+  height: 150px;
+  width: 100%;
+  display: flex;
+  padding: 0.5rem;
+  background-color: var(--bg-mid);
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.uncheck {
+}
+.check-texts {
+  margin-left: 0.5rem;
+  margin-top: 5px;
+}
