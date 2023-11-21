@@ -11,6 +11,9 @@
   --font-light: #e3e3e3;
   --bg-dark: #1a1a1a;
   --bg-mid: #f3f3f3;
+--stroke-light-100: rgba(255, 255, 255, 0.20);
+--states-focused: #005BD3
+
 }
 
 body {
@@ -22,12 +25,22 @@ body {
   font-weight: 500;
 }
 .button {
-  border-radius: 6px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  background: var(--White, #fff);
-  box-shadow: 0px -1px 0px 0px #b5b5b5 inset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 7px;
+  padding: 0.4rem 0.6rem;
+  font-size: 11px;
+ font-weight: 600;
 }
 
+.hidden {
+  display: none;
+}
+
+
+
+/* ================================================= */
 nav {
   background-color: var(--bg-dark);
   color: #fff;
@@ -74,6 +87,8 @@ nav {
   height: 68%;
   display: flex;
   justify-content: space-between;
+  position: relative;
+
 }
 
 
@@ -88,6 +103,7 @@ nav {
   width: 50px;
  
 }
+
 .profile {
   height: 100%;
   width: 170px;
@@ -114,6 +130,21 @@ nav {
   background-color: var(--font-dark);
   border-radius: 8px;
 }
+.notify-dropdown, .profile-menu {
+  min-height: 100px;
+  width: 350px;
+  background-color: #fff;
+  color: var(--font-mid);
+  border: 1px solid var(--font-light);
+  position: absolute;
+  top: 3.22rem;
+  right: 0;
+  border-radius: 10px;
+}
+
+
+
+/* ===========================MAIN */
 .main {
   height: 400px;
   width: 800px;
@@ -137,13 +168,28 @@ nav {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+
+}
+.trial-btns {
+  display: flex;
+  align-items: center;
+}
+.trial-btn {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: var(--body-light);
+  box-shadow: 0px -1px 0px 0px #b5b5b5 inset;
+  margin-right: 0.7rem;
+}
+.trial-btns a {
+  text-decoration: none;
 }
 
 /* ==================== ACCORDION STYLES */
 .accordion-box {
-  min-height: 300px;
+  min-height: 100px;
   background-color: #fff;
-  border: 1px solid #ccc;
+  border: 1px solid var(--font-light);
   color: var(--font-dark);
   border-radius: 10px;
   margin-top: 1rem;
@@ -155,6 +201,12 @@ nav {
   display: flex;
   justify-content: space-between;
 }
+.texts-inner-box p {
+margin: 0.5rem 0 1rem 0;
+}
+/* .texts-inner-box {
+
+} */
 
 .progress-box {
   display: flex;
@@ -166,21 +218,36 @@ nav {
 
 /* -------------- */
 .checks-box {
-  margin-top: 1rem;
+  margin-top: 1.5rem;
 }
 .check {
-  height: 150px;
+  min-height: 50px;
   width: 100%;
   display: flex;
-  padding: 0.5rem;
+  padding: 0.8rem;
   background-color: var(--bg-mid);
   border-radius: 10px;
   margin-bottom: 1rem;
 }
 
-.uncheck {
-}
+/* .uncheck {
+} */
 .check-texts {
-  margin-left: 0.5rem;
+  margin-left: 0.3rem;
   margin-top: 5px;
+  width: 445px;
+}
+.check-texts p {
+  margin: 1.4rem 0;
+  line-height: 18.5px;
+}
+.check-text-btn {
+border: 1.5px solid var(--stroke-light-100);
+background: #404040;
+color: var(--font-light);
+box-shadow: 0px 0px 0px 1.5px #333, 0px 1px 0px 1.5px #333, 0px 2px 0px 0px #000;
+}
+.check-infos a {
+  color: var(--states-focused);
+  font-weight: 500;
 }
