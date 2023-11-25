@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -56,34 +62,30 @@
             </a>
           </div>
 
-          <div class="search">
-            <div class="badge-box search-inner">
-              <span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="18"
-                  height="18"
-                  viewBox="0 0 13 14"
-                  fill="none"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M8.82264 10.3833C7.89957 11.0841 6.74835 11.5 5.5 11.5C2.46243 11.5 0 9.03757 0 6C0 2.96243 2.46243 0.5 5.5 0.5C8.53757 0.5 11 2.96243 11 6C11 7.24835 10.5841 8.39957 9.8833 9.32264L12.7803 12.2197C13.0732 12.5126 13.0732 12.9874 12.7803 13.2803C12.4874 13.5732 12.0126 13.5732 11.7197 13.2803L8.82264 10.3833ZM9.5 6C9.5 8.20914 7.70914 10 5.5 10C3.29086 10 1.5 8.20914 1.5 6C1.5 3.79086 3.29086 2 5.5 2C7.70914 2 9.5 3.79086 9.5 6Z"
-                    fill="#b5b5b5"
-                  />
-                </svg>
-              </span>
+          <div class="search badge-box" aria-pressed="false">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="21"
+              height="20"
+              viewBox="0 0 21 20"
+              fill="none"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M12.8226 13.3833C11.8996 14.0841 10.7484 14.5 9.5 14.5C6.46243 14.5 4 12.0376 4 9C4 5.96243 6.46243 3.5 9.5 3.5C12.5376 3.5 15 5.96243 15 9C15 10.2484 14.5841 11.3996 13.8833 12.3226L16.7803 15.2197C17.0732 15.5126 17.0732 15.9874 16.7803 16.2803C16.4874 16.5732 16.0126 16.5732 15.7197 16.2803L12.8226 13.3833ZM13.5 9C13.5 11.2091 11.7091 13 9.5 13C7.29086 13 5.5 11.2091 5.5 9C5.5 6.79086 7.29086 5 9.5 5C11.7091 5 13.5 6.79086 13.5 9Z"
+                fill="#B5B5B5"
+              />
+            </svg>
 
-              <input type="text" placeholder="Search" class="search-input" />
-            </div>
+            <input type="text" placeholder="Search" class="search-input" />
           </div>
 
           <div class="notify">
-            <div class="badge-box notification">
+            <button class="badge-box notification">
               <svg
-                width="28"
-                height="28"
+                width="20"
+                height="20"
                 viewBox="0 0 21 20"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -108,8 +110,10 @@
                   </p>
                 </div>
               </div>
-            </div>
-            <div class="badge-box profile">
+            </button>
+
+            <!-- ============== -->
+            <button class="badge-box profile">
               <div class="profile-name">Davii Collections</div>
               <span class="profile-span">DC</span>
 
@@ -136,7 +140,7 @@
                   </ul>
                 </div>
               </div>
-            </div>
+            </button>
           </div>
         </div>
       </nav>
@@ -145,33 +149,39 @@
       <!-- MAIN -->
       <!-- ---------------------- -->
 
-      <div class="main">
+      <main class="main">
         <!-- ---------------------- -->
         <!-- TRIAL BOX -->
         <!-- ---------------------- -->
         <div class="trial-box">
-          <div class="trial-inner-box">
-            <p class="trial-text">
-              Extend your trial for $1/month for 3 months on select plans.
-            </p>
+          <p class="trial-text">
+            Extend your trial for $1/month for 3 months on select plans.
+          </p>
 
-            <div class="trial-btns">
-              <a href="http://shopify.com/pricing">
-                <button class="button trial-btn link">Select a plan</button>
-              </a>
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 21 20"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
+          <div class="trial-btns">
+            <a href="http://shopify.com/pricing">
+              <button
+                type="button"
+                role="button"
+                aria-label="select a plan"
+                aria-pressed="false"
+                class="trial-btn"
               >
-                <path
-                  d="M14.4697 15.0303C14.7626 15.3232 15.2374 15.3232 15.5303 15.0303C15.8232 14.7374 15.8232 14.2626 15.5303 13.9697L11.5607 10L15.5303 6.03033C15.8232 5.73744 15.8232 5.26256 15.5303 4.96967C15.2374 4.67678 14.7626 4.67678 14.4697 4.96967L10.5 8.93934L6.53033 4.96967C6.23744 4.67678 5.76256 4.67678 5.46967 4.96967C5.17678 5.26256 5.17678 5.73744 5.46967 6.03033L9.43934 10L5.46967 13.9697C5.17678 14.2626 5.17678 14.7374 5.46967 15.0303C5.76256 15.3232 6.23744 15.3232 6.53033 15.0303L10.5 11.0607L14.4697 15.0303Z"
-                  fill="#fff"
-                />
-              </svg>
-            </div>
+                Select a plan
+              </button>
+            </a>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+            >
+              <path
+                d="M13.9697 15.0303C14.2626 15.3232 14.7374 15.3232 15.0303 15.0303C15.3232 14.7374 15.3232 14.2626 15.0303 13.9697L11.0607 10L15.0303 6.03033C15.3232 5.73744 15.3232 5.26256 15.0303 4.96967C14.7374 4.67678 14.2626 4.67678 13.9697 4.96967L10 8.93934L6.03033 4.96967C5.73744 4.67678 5.26256 4.67678 4.96967 4.96967C4.67678 5.26256 4.67678 5.73744 4.96967 6.03033L8.93934 10L4.96967 13.9697C4.67678 14.2626 4.67678 14.7374 4.96967 15.0303C5.26256 15.3232 5.73744 15.3232 6.03033 15.0303L10 11.0607L13.9697 15.0303Z"
+                fill="#E3E3E3"
+              />
+            </svg>
           </div>
         </div>
 
@@ -181,11 +191,13 @@
         <div class="accordion-box">
           <!-- ----------- -->
           <div class="texts-box">
-            <div class="texts-inner-box">
-              <h3>Setup guide</h3>
-              <p>
-                Use this personalized guide to get your store up and running.
-              </p>
+            <div class="texts-text-box">
+              <div class="texts-text-heading-box">
+                <h3>Setup guide</h3>
+                <p>
+                  Use this personalized guide to get your store up and running.
+                </p>
+              </div>
 
               <div class="progress-box">
                 <div>1 / 5 completed</div>
@@ -205,71 +217,85 @@
               </div>
             </div>
 
-            <div>
+            <div class="texts-icon-box">
+              <!-- up -->
+              <button class="step-up">
               <svg
-                width="19"
-                height="19"
-                viewBox="0 0 21 20"
-                fill="none"
+                class="step-up hidden"
                 xmlns="http://www.w3.org/2000/svg"
-                class="step-down"
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
               >
                 <path
                   fill-rule="evenodd"
                   clip-rule="evenodd"
-                  d="M15.0303 12.2803C14.7374 12.5732 14.2626 12.5732 13.9697 12.2803L10.5 8.81066L7.03033 12.2803C6.73744 12.5732 6.26256 12.5732 5.96967 12.2803C5.67678 11.9874 5.67678 11.5126 5.96967 11.2197L9.96967 7.21967C10.2626 6.92678 10.7374 6.92678 11.0303 7.21967L15.0303 11.2197C15.3232 11.5126 15.3232 11.9874 15.0303 12.2803Z"
-                  fill="#8a8a8a"
+                  d="M14.5303 12.2803C14.2374 12.5732 13.7626 12.5732 13.4697 12.2803L10 8.81066L6.53033 12.2803C6.23744 12.5732 5.76256 12.5732 5.46967 12.2803C5.17678 11.9874 5.17678 11.5126 5.46967 11.2197L9.46967 7.21967C9.76256 6.92678 10.2374 6.92678 10.5303 7.21967L14.5303 11.2197C14.8232 11.5126 14.8232 11.9874 14.5303 12.2803Z"
+                  fill="#4A4A4A"
                 />
               </svg>
+            </button>
 
               <!-- down -->
-              <!-- <svg
+              <button class="step-down">
+
+              <svg
                 class="step-down"
-                width="19"
-                height="19"
-                viewBox="0 0 21 20"
-                fill="none"
                 xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
               >
                 <path
                   fill-rule="evenodd"
                   clip-rule="evenodd"
-                  d="M6.21967 8.46967C6.51256 8.17678 6.98744 8.17678 7.28033 8.46967L10.75 11.9393L14.2197 8.46967C14.5126 8.17678 14.9874 8.17678 15.2803 8.46967C15.5732 8.76256 15.5732 9.23744 15.2803 9.53033L11.2803 13.5303C10.9874 13.8232 10.5126 13.8232 10.2197 13.5303L6.21967 9.53033C5.92678 9.23744 5.92678 8.76256 6.21967 8.46967Z"
-                  fill="#fff"
+                  d="M5.71967 8.46967C6.01256 8.17678 6.48744 8.17678 6.78033 8.46967L10.25 11.9393L13.7197 8.46967C14.0126 8.17678 14.4874 8.17678 14.7803 8.46967C15.0732 8.76256 15.0732 9.23744 14.7803 9.53033L10.7803 13.5303C10.4874 13.8232 10.0126 13.8232 9.71967 13.5303L5.71967 9.53033C5.42678 9.23744 5.42678 8.76256 5.71967 8.46967Z"
+                  fill="#4A4A4A"
                 />
-              </svg> -->
+              </svg>
+            </button>
+
             </div>
           </div>
 
-          <!-- ------------ -->
-          <div class="checks-box hidden">
+          <!-- ------------START ACCORDION HEAD AND PANELS-->
+          <div class="accordion-accordion">
+            <!-- --------------------------------------------- -->
             <!-- 1 -->
-            <div class="check box-1">
-              <div class="uncheck">
-                <!-- <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- ------------------------------------------------ -->
+            <div class="accordion-each-box">
+              <!-- ----------------------content -->
+              <div class="accordion-left-content">
+                <div class="accordion-check">
+                  <!-- <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="12" cy="12" r="10" fill="#303030"></circle>
                     <path
                       d="M17.2738 8.52629C17.6643 8.91682 17.6643 9.54998 17.2738 9.94051L11.4405 15.7738C11.05 16.1644 10.4168 16.1644 10.0263 15.7738L7.3596 13.1072C6.96908 12.7166 6.96908 12.0835 7.3596 11.693C7.75013 11.3024 8.38329 11.3024 8.77382 11.693L10.7334 13.6525L15.8596 8.52629C16.2501 8.13577 16.8833 8.13577 17.2738 8.52629Z"
                       fill="#fff"
                     ></path>
                   </svg> -->
-                <check-svg></check-svg>
-              </div>
-              <div class="check-texts">
-                <h3 class="check-tag">Customize your online store</h3>
+                  <check-svg></check-svg>
+                </div>
 
-                <div class="check-infos hidden">
-                  <p>
-                    Choose a theme and add your logo, colors, and images to
-                    reflect your brand. <br />
-                    <a>Learn more</a>
-                  </p>
+                <div class="accordion-both-hp">
+                  <h3 class="accordion-header">Customize your online store</h3>
 
-                  <button class="button check-text-btn">Customize theme</button>
+                  <!-- ------------------panel -->
+                  <div class="accordion-panel">
+                    <p>
+                      Choose a theme and add your logo, colors, and images to
+                      reflect your brand.
+                      <a>Learn more</a>
+                    </p>
+
+                    <button class="button">Customize theme</button>
+                  </div>
                 </div>
               </div>
-
-              <div class="check-img">
+              <!-- ---------------------icon -->
+              <div class="accordion-right-icon">
                 <img
                   src="https://crushingit.tech/hackathon-assets/customise-store.png"
                   alt=""
@@ -278,28 +304,46 @@
               </div>
             </div>
 
+            <!-- ------------------------------------------- -->
             <!-- 2 -->
-            <div class="check box-2">
-              <div class="uncheck">
-                <check-svg></check-svg>
-              </div>
-              <div class="check-texts">
-                <h3 class="check-tag">Add your first product</h3>
+            <!-- ------------------------------------------- -->
+            <div class="accordion-each-box">
+              <!-- ----------------------content -->
+              <div class="accordion-left-content">
+                <div class="accordion-check">
+                  <!-- <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="10" fill="#303030"></circle>
+                    <path
+                      d="M17.2738 8.52629C17.6643 8.91682 17.6643 9.54998 17.2738 9.94051L11.4405 15.7738C11.05 16.1644 10.4168 16.1644 10.0263 15.7738L7.3596 13.1072C6.96908 12.7166 6.96908 12.0835 7.3596 11.693C7.75013 11.3024 8.38329 11.3024 8.77382 11.693L10.7334 13.6525L15.8596 8.52629C16.2501 8.13577 16.8833 8.13577 17.2738 8.52629Z"
+                      fill="#fff"
+                    ></path>
+                  </svg> -->
+                  <check-svg></check-svg>
+                </div>
 
-                <div class="check-infos hidden">
-                  <p>
-                    Write a description, add photos, and set pricing for the
-                    products you plan to sell. <a>Learn more</a>
-                  </p>
+                <div class="accordion-both-hp">
+                  <h3 class="accordion-header">Add your first product</h3>
 
-                  <div style="display: inline-flex">
-                    <button class="button check-text-btn">Add product</button>
-                    <button class="button check-text-btn">Add product</button>
+                  <!-- ------------------panel -->
+                  <div class="accordion-panel hidden">
+                    <p>
+                      Write a description, add photos, and set pricing for the
+                      products you plan to sell.
+                      <a>Learn more</a>
+                    </p>
+
+                    <div class="two-btns">
+                      <button class="button ">Add product</button>
+
+                      <button class="button2">
+                        Import product
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
-
-              <div class="check-img">
+              <!-- ---------------------icon -->
+              <div class="accordion-right-icon">
                 <img
                   src="https://crushingit.tech/hackathon-assets/product.png"
                   alt=""
@@ -308,26 +352,41 @@
               </div>
             </div>
 
+            <!-- --------------------------------- -->
             <!-- 3 -->
-            <div class="check box-3">
-              <div class="uncheck">
-                <check-svg></check-svg>
-              </div>
-              <div class="check-texts">
-                <h3 class="check-tag">Add a custom domain</h3>
+            <!-- ------------------------------ -->
+            <div class="accordion-each-box">
+              <!-- ----------------------content -->
+              <div class="accordion-left-content">
+                <div class="accordion-check">
+                  <!-- <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="10" fill="#303030"></circle>
+                    <path
+                      d="M17.2738 8.52629C17.6643 8.91682 17.6643 9.54998 17.2738 9.94051L11.4405 15.7738C11.05 16.1644 10.4168 16.1644 10.0263 15.7738L7.3596 13.1072C6.96908 12.7166 6.96908 12.0835 7.3596 11.693C7.75013 11.3024 8.38329 11.3024 8.77382 11.693L10.7334 13.6525L15.8596 8.52629C16.2501 8.13577 16.8833 8.13577 17.2738 8.52629Z"
+                      fill="#fff"
+                    ></path>
+                  </svg> -->
+                  <check-svg></check-svg>
+                </div>
 
-                <div class="check-infos hidden">
-                  <p>
-                    Your current domain is 222219.myshopify.com but you can add
-                    a custom domain to help customers find your online store.
-                    <a>Learn more</a>
-                  </p>
+                <div class="accordion-both-hp">
+                  <h3 class="accordion-header">Add a custom domain</h3>
 
-                  <button class="button check-text-btn">Add domain</button>
+                  <!-- ------------------panel -->
+                  <div class="accordion-panel hidden">
+                    <p>
+                      Your current domain is 222219.myshopify.com but you can
+                      add a custom domain to help customers find your online
+                      store.
+                      <a>Learn more</a>
+                    </p>
+
+                    <button class="button check-text-btn">Add domain</button>
+                  </div>
                 </div>
               </div>
-
-              <div class="check-img">
+              <!-- ---------------------icon -->
+              <div class="accordion-right-icon">
                 <img
                   src="https://crushingit.tech/hackathon-assets/website.png"
                   alt=""
@@ -336,26 +395,41 @@
               </div>
             </div>
 
+            <!-- -------------------------------- -->
             <!-- 4 -->
-            <div class="check box-4">
-              <div class="uncheck">
-                <check-svg></check-svg>
-              </div>
-              <div class="check-texts">
-                <h3>Name your store</h3>
+            <!-- ------------------------------------------ -->
+            <div class="accordion-each-box">
+              <!-- ----------------------content -->
+              <div class="accordion-left-content">
+                <div class="accordion-check">
+                  <!-- <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="12" cy="12" r="10" fill="#303030"></circle>
+        <path
+          d="M17.2738 8.52629C17.6643 8.91682 17.6643 9.54998 17.2738 9.94051L11.4405 15.7738C11.05 16.1644 10.4168 16.1644 10.0263 15.7738L7.3596 13.1072C6.96908 12.7166 6.96908 12.0835 7.3596 11.693C7.75013 11.3024 8.38329 11.3024 8.77382 11.693L10.7334 13.6525L15.8596 8.52629C16.2501 8.13577 16.8833 8.13577 17.2738 8.52629Z"
+          fill="#fff"
+        ></path>
+      </svg> -->
+                  <check-svg></check-svg>
+                </div>
 
-                <div class="check-infos hidden">
-                  <p>
-                    Your temporary store name is currently Davii collections.
-                    The store name appears in your admin and your online store.
-                    <a>Learn more</a>
-                  </p>
+                <div class="accordion-both-hp">
+                  <h3 class="accordion-header">Name your store</h3>
 
-                  <button class="button check-text-btn">Name store</button>
+                  <!-- ------------------panel -->
+                  <div class="accordion-panel hidden">
+                    <p>
+                      Your temporary store name is currently Davii collections.
+                      The store name appears in your admin and your online
+                      store.
+                      <a>Learn more</a>
+                    </p>
+
+                    <button class="button check-text-btn">Name store</button>
+                  </div>
                 </div>
               </div>
-
-              <div class="check-img">
+              <!-- ---------------------icon -->
+              <div class="accordion-right-icon">
                 <img
                   src="https://crushingit.tech/hackathon-assets/name-store.png"
                   alt=""
@@ -364,26 +438,44 @@
               </div>
             </div>
 
+            <!-- ----------------------------------------- -->
             <!-- 5 -->
-            <div class="check box-5">
-              <div class="uncheck">
-                <check-svg></check-svg>
-              </div>
-              <div class="check-texts">
-                <h3>Set up a payment provider</h3>
+            <!-- ------------------------------------------ -->
 
-                <div class="check-infos hidden">
-                  <p>
-                    Choose a payment provider to start accepting payments.
-                    You’ll need to create an account with the payment provider
-                    and set it up with your Shopify store. <a>Learn more</a>
-                  </p>
+            <div class="accordion-each-box">
+              <!-- ----------------------content -->
+              <div class="accordion-left-content">
+                <div class="accordion-check">
+                  <!-- <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="10" fill="#303030"></circle>
+                    <path
+                      d="M17.2738 8.52629C17.6643 8.91682 17.6643 9.54998 17.2738 9.94051L11.4405 15.7738C11.05 16.1644 10.4168 16.1644 10.0263 15.7738L7.3596 13.1072C6.96908 12.7166 6.96908 12.0835 7.3596 11.693C7.75013 11.3024 8.38329 11.3024 8.77382 11.693L10.7334 13.6525L15.8596 8.52629C16.2501 8.13577 16.8833 8.13577 17.2738 8.52629Z"
+                      fill="#fff"
+                    ></path>
+                  </svg> -->
+                  <check-svg></check-svg>
+                </div>
 
-                  <button class="button check-text-btn">Set up payment</button>
+                <div class="accordion-both-hp">
+                  <h3 class="accordion-header">Set up a payment provider</h3>
+
+                  <!-- ------------------panel -->
+                  <div class="accordion-panel hidden">
+                    <p>
+                      Choose a payment provider to start accepting payments.
+                      You’ll need to create an account with the payment provider
+                      and set it up with your Shopify store.
+                      <a>Learn more</a>
+                    </p>
+
+                    <button class="button check-text-btn">
+                      Set up payment
+                    </button>
+                  </div>
                 </div>
               </div>
-
-              <div class="check-img">
+              <!-- ---------------------icon -->
+              <div class="accordion-right-icon">
                 <img
                   src="https://crushingit.tech/hackathon-assets/payment.png"
                   alt=""
@@ -392,8 +484,9 @@
               </div>
             </div>
           </div>
+          <!-- ------------ENDS ACCORDION HEAD AND PANELS -->
         </div>
-      </div>
+      </main>
     </div>
 
     <!-- ---------------------- -->
