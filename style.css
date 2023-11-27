@@ -530,6 +530,13 @@ border-radius: 6px;
   flex-direction: column;
   gap: 2px;
   align-self: stretch;
+  /* border: 3px solid black; */
+}
+.accordion-accordion:focus {
+  border: 1px solid #005BD3;
+
+  /* outline: 1px solid #005BD3; */
+  outline-offset: 2px;
 }
 
 .accordion-each-box {
@@ -668,7 +675,7 @@ stroke-dasharray: 0 0;
 }
 
 .button {
-  width: 127px;
+  max-width: 127px;
   height: 28px;
   display: flex;
   justify-content: center;

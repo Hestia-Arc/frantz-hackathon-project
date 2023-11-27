@@ -369,7 +369,7 @@
               </div>
 
               <div class="progress-box">
-                <div class="progress-text">1 / 5 completed</div>
+                <div class="progress-text"><span id="count">0</span> / 5 completed</div>
 
                 <svg
                   class="progress-range"
@@ -380,7 +380,7 @@
                   fill="none"
                 >
                   <rect width="72" height="4" rx="2" fill="#E3E3E3" />
-                  <rect width="28" height="4" fill="#1A1A1A" />
+                  <rect id="range-value" width="0" height="4" fill="#1A1A1A" />
                 </svg>
                 <!-- <input type="range" class="progress-range" /> -->
               </div>
@@ -525,10 +525,10 @@
                     <button
                       type="button"
                       role="tab"
-                      aria-expanded="true"
+                      aria-expanded="false"
                       aria-controls="panel-1"
                       id="tab-1"
-                      tabindex="0"
+                      tabindex="-1"
                       class="panel-trigger"
                     >
                       Customize your online store
@@ -1235,7 +1235,7 @@
     <!-- ---------------------- -->
     <!-- SCRIPT -->
     <!-- ---------------------- -->
-    <script src="app.js"></script>
+    <!-- <script src="app.js"></script> -->
     <script src="tab.js" defer></script>
   </body>
 </html>
