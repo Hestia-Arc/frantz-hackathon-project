@@ -12,27 +12,6 @@ class SVG extends HTMLElement {
   }
 }
 
- 
-        // <svg
-        //   xmlns="http://www.w3.org/2000/svg"
-        //   width="27"
-        //   height="27"
-        //   viewBox="0 0 32 32"
-        //   fill="none"
-        //   style="padding-top: 5px"
-        // >
-        //   <circle
-        //     cx="16"
-        //     cy="16"
-        //     r="12"
-        //     stroke="#8a8a8a"
-        //     stroke-width="2.5"
-        //     stroke-linecap="round"
-        //     stroke-linejoin="round"
-        //     stroke-dasharray="4 6"
-        //   />
-        // </svg>
-
 // ===================FEATURES
 //##### 1. click logo and navigate to landing page
 // 2. focus on search box...freely type into input
@@ -48,47 +27,222 @@ class SVG extends HTMLElement {
 // click the completed marked step again.. make the step incomplete / remove checked mark / expand panel / decrease progress bar
 
 customElements.define("check-svg", SVG);
+function app() {
+  // ==========================================SELECTING ELEMENTS
+  const profileMenuTrigger = document.querySelector("#profile-menu");
+  const profileMenuPanel = document.querySelector("#profile-menu-content");
 
-// ==========================================SELECTING ELEMENTS
-const notifyIcon = document.querySelector(".notify-icon");
-const notifyBox = document.querySelector(".notify-dropdown");
-const profileBox = document.querySelector(".profile");
-const menuBox = document.querySelector(".profile-menu");
-const stepDown = document.querySelector(".step-down");
-const accordionPanels = document.querySelector(".accordion-accordion");
-const checkTags = document.querySelectorAll(".check-tag");
-const checkInfos = document.querySelector(".check-infos");
-const checkImg = document.querySelector(".check-img");
+  const allMenuItems = profileMenuPanel.querySelectorAll('[role="menuitem"]');
+  const summaries = document.querySelectorAll("summary");
+  // const accordionTrigger = document.querySelectorAll('.accordion-header');
+  // const aPanel = document.querySelectorAll('.arc-p');
 
-// ========================3...NOTIFICATION BELL TOGGLE
-notifyIcon.addEventListener("click", () => {
-  notifyBox.classList.toggle("hidden");
-});
+  // ====profile menu
 
-// ======================4...PROFILE TOGGLE
-profileBox.addEventListener("click", () => {
-  menuBox.classList.toggle("hidden");
-});
+  // ===========================3a
+  function closeMenu() {
+    profileMenuTrigger.ariaExpanded = "false";
+    profileMenuTrigger.focus();
+  }
 
-// ======================6...TRIAL BOX REMOVE
+  // ==========================4a
+  function handleMenuEscapeKeypress(event) {
+    // if user pressed escape key
+    if (event.key === "Escape") {
+      toggleMenu();
+    }
+  }
 
-// ======================7...EXPAND STEPS
-stepDown.addEventListener("click", () => {
-  accordionPanels.classList.toggle("hidden");
-});
+  // ================================4b
+  function handleMenuItemArrowKeyPress(event, menuItemIndex) {
+    // create some helpful variables : isLastMenuItem, isFirstMenuItem
+    const isLastMenuItem = menuItemIndex === allMenuItems.length - 1;
+    const isFirstMenuItem = menuItemIndex === 0;
 
-// ======================8...EXPAND PANELS
-checkTags.forEach((tag) => {
-  tag.addEventListener("click", () => {
-    tag.nextElementSibling.classList.toggle("hidden");
-    tag.parentNode.parentNode.classList.toggle("check-bg");
+    const nextMenuItem = allMenuItems.item(menuItemIndex + 1);
+    const previousMenuItem = allMenuItems.item(menuItemIndex - 1);
 
-    // prev
-    tag.parentNode.parentNode.previousElementSibling.classList.remove(
-      "check-bg"
-    );
-    tag.parentNode.parentNode.previousElementSibling.children[1].firstElementChild.nextElementSibling.classList.add(
-      "hidden"
-    );
+    // if the user pressed arrow right or arrow down
+    if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+      // if user is on last item, focus on first menuitem
+      if (isLastMenuItem) {
+        allMenuItems.item(0).focus();
+
+        return;
+      }
+      // then focus on next menu item
+      nextMenuItem.focus();
+    }
+
+    // if the user pressed arrow up or arrow left
+    if (event.key === "ArrowUp" || event.key === "ArrowLeft") {
+      if (isFirstMenuItem) {
+        allMenuItems.item(allMenuItems.length - 1).focus();
+        return;
+      }
+
+      previousMenuItem.focus();
+    }
+    // then focus on the previous menu item
+    // if the user is on first menu item, focus on last menuitem
+  }
+
+  // ==============================3b
+  function openMenu() {
+    profileMenuTrigger.ariaExpanded = "true";
+    allMenuItems.item(0).focus();
+
+    profileMenuPanel.addEventListener("keyup", handleMenuEscapeKeypress);
+
+    // for each menu item, register an event listener for the keyup event
+    allMenuItems.forEach(function (menuItem, menuItemIndex) {
+      menuItem.addEventListener("keyup", function (event) {
+        handleMenuItemArrowKeyPress(event, menuItemIndex);
+      });
+    });
+  }
+
+  // =================================2
+  function toggleMenu() {
+    const isExpanded =
+      profileMenuTrigger.attributes["aria-expanded"].value === "true";
+    profileMenuPanel.classList.toggle("menu-active");
+
+    if (isExpanded) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  }
+
+  // ======================================1
+  profileMenuTrigger.addEventListener("click", toggleMenu);
+
+  // ========================================
+  // accordions
+
+  function closeOpenDetails() {
+    summaries.forEach((summary) => {
+      let detail = summary.parentNode;
+      let grandP = this.parentNode.parentNode.parentNode;
+
+      if (detail != this.parentNode) {
+        detail.removeAttribute("open");
+        grandP.classList.remove("accordion-each-box");
+        // grandP.style.background = '#f3f3f3'
+        grandP.classList.toggle("active-each-box");
+        // detail.parentNode.parentNode.add('accordion-each-box')
+      }
+    });
+  }
+
+  summaries.forEach((summary) => {
+    summary.addEventListener("click", closeOpenDetails);
   });
-});
+
+  // ===============================
+  // ===============================ALERT MENU
+  const alertIcon = document.querySelector("#alert-menu");
+  const alertMenu = document.querySelector("#alert-menu-content");
+
+  alertIcon.addEventListener("click", () => {
+    let expanded = alertIcon.attributes["aria-expanded"].value === "true";
+    alertMenu.classList.toggle("menu-active");
+
+    if (expanded) {
+      // close
+      alertIcon.ariaExpanded = "false";
+    } else {
+      // open
+      alertIcon.ariaExpanded = "true";
+    }
+  });
+
+  // ========================================
+  // =============================TRIAL BOX REMOVE
+  const trialBox = document.querySelector(".trial-box");
+  const trialClose = document.querySelectorAll(".t-close");
+
+  trialClose.forEach((icon) => {
+    icon.addEventListener("click", () => {
+      trialBox.remove();
+    });
+  });
+
+  // ==================================
+  // =============================UP/DOWN BUTTONS
+  const stepUp = document.querySelector(".step-up");
+  const stepDown = document.querySelector(".step-down");
+  const accordion = document.querySelector(".all-steps");
+
+  stepDown.addEventListener("click", () => {
+    accordion.classList.remove("hidden");
+    stepDown.classList.add("hidden");
+    stepUp.classList.remove("hidden");
+  });
+
+  stepUp.addEventListener("click", () => {
+    accordion.classList.add("hidden");
+    stepDown.classList.remove("hidden");
+    stepUp.classList.add("hidden");
+  });
+
+  // ============================
+  // =============================CHECK BUTTONS
+  const checkBtn = document.querySelector("#check-btn");
+
+  const notCompleted = checkBtn.querySelector("#not-completed-icon");
+  const completed = checkBtn.querySelector("#completed");
+  const spinner = checkBtn.querySelector("#spinner");
+  const MARKED_AS_DONE_CLASS = "checkbox-done";
+
+  function doneCheck() {
+    notCompleted.classList.add("hidden");
+    spinner.classList.remove("hidden");
+    setTimeout(() => {
+      completed.classList.remove("hidden");
+      spinner.classList.add("hidden");
+    }, 3000);
+    checkBtn.classList.add(MARKED_AS_DONE_CLASS)
+  }
+
+  function unDoneCheck() {
+    completed.classList.add("hidden");
+    spinner.classList.remove('hidden')
+    setTimeout(() => {
+      notCompleted.classList.remove("hidden");
+      spinner.classList.add("hidden");
+    }, 3000);
+    checkBtn.classList.remove(MARKED_AS_DONE_CLASS)
+
+  }
+
+  checkBtn.addEventListener("click", () => {
+    const markedAsDone = checkBtn.classList.contains(MARKED_AS_DONE_CLASS);
+
+    if (markedAsDone) {
+      unDoneCheck();
+    } else {
+      doneCheck();
+    }
+  });
+
+  // =================Example practice code
+  // const btn = document.querySelector(".x-btn");
+  // const text = document.querySelector(".x-text");
+
+  // btn.addEventListener("click", () => {
+  //   let expanded = btn.attributes["aria-expanded"].value === "true";
+  //   text.classList.toggle("x-active");
+
+  //   if (expanded) {
+  //     // close
+  //     btn.ariaExpanded = "false";
+  //   } else {
+  //     // open
+  //     btn.ariaExpanded = "true";
+  //   }
+  // });
+}
+
+app();
